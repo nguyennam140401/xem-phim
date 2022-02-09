@@ -12,7 +12,6 @@ const Banner = ({ arrFilm }) => {
         slidesToScroll: 1,
         arrows: false,
     }
-    console.log(arrFilm)
     return (
         <Style>
             <div className="banner-film">

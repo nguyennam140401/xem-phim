@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@mui/material/Grid'
 import MainHome from '../components/MainHome'
+import Sidebar from '../components/Sidebar'
 // import Grid from '@mui/material/Grid'
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
                 <MainHome />
             </Grid>
             <Grid item xs={3}>
-                Search
+                <Sidebar />
             </Grid>
         </Grid>
     )
