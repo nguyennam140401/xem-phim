@@ -1,5 +1,6 @@
 import { Star } from '@mui/icons-material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Style } from './style'
 const SerieFilm = ({ data }) => {
     console.log(data)
@@ -13,7 +14,11 @@ const SerieFilm = ({ data }) => {
                     <div>
                         {data.refList.map((film, idx) => {
                             return (
-                                <div className="film" key={idx}>
+                                <Link
+                                    to={`/movie/${film.id}`}
+                                    className="film"
+                                    key={idx}
+                                >
                                     <div className="bx-img">
                                         <img
                                             src={film.coverVerticalUrl}
@@ -21,7 +26,7 @@ const SerieFilm = ({ data }) => {
                                         />
                                     </div>
                                     <p className="name">{film.name}</p>
-                                </div>
+                                </Link>
                             )
                         })}
                     </div>
@@ -35,7 +40,11 @@ const SerieFilm = ({ data }) => {
                     <>
                         {data.likeList.map((film, idx) => {
                             return (
-                                <div className="film" key={idx}>
+                                <Link
+                                    to={`/movie/${film.id}`}
+                                    className="film"
+                                    key={idx}
+                                >
                                     <div className="bx-img">
                                         <img
                                             src={film.coverVerticalUrl}
@@ -49,7 +58,7 @@ const SerieFilm = ({ data }) => {
                                             {film.score}
                                         </span>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })}
                     </>

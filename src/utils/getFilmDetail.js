@@ -1,33 +1,19 @@
 import { getDetailFilm, getPlayFilm } from '../api/apiPhim'
 
-export const getFilmDetail = async (id, episodeIndex) => {
-    const res = await getDetailFilm(id)
+export const getFilmDetail = async (id, episodeIndex, type) => {
+    const res = await getDetailFilm(id, type)
     const data = res.data
     const sources = (
         await Promise.all(
-            data.episodeVo[episodeIndex].definitionList.map(async (quality) =>
-                //     await axios.get(
-                //         'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo',
-                //         {
-                //             params: {
-                //                 category: 1,
-                //                 contentId: id,
-                //                 episodeId: data.episodeVo[episodeIndex].id,
-                //                 definition: quality.code,
-                //             },
-                //         }
-                //     )
-                // ).data.data.mediaUrl
-                {
-                    const res = await getPlayFilm(
-                        id,
-                        data.episodeVo[episodeIndex].id,
-                        quality.code
-                    )
-                    console.log(res)
-                    return res.data.mediaUrl
-                }
-            )
+            data.episodeVo[episodeIndex].definitionList.map(async (quality) => {
+                const res = await getPlayFilm(
+                    id,
+                    data.episodeVo[episodeIndex].id,
+                    quality.code
+                )
+                console.log(res)
+                return res.data.mediaUrl
+            })
         )
     )
         .map((url, index) => ({

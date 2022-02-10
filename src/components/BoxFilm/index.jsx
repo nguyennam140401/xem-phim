@@ -1,15 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Style } from './style'
 const BoxFilm = ({ data }) => {
-    const { jumpAddress, imageUrl, title } = data
+    const {
+        imageUrl,
+        title,
+        id,
+        coverVerticalUrl,
+        name,
+        domainType,
+        category,
+    } = data
+    console.log(domainType, category)
     return (
         <Style>
-            <a href={jumpAddress}>
+            <Link
+                to={`/movie/${id}?domain=${
+                    domainType !== 'undefined' ? domainType : category
+                }`}
+            >
                 <div className="bx_img">
-                    <img src={imageUrl} alt="" />
+                    <img src={imageUrl || coverVerticalUrl} alt="" />
                 </div>
-                <p>{title}</p>
-            </a>
+                <p>{title || name}</p>
+            </Link>
         </Style>
     )
 }

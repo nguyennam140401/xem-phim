@@ -11,12 +11,14 @@ const FilmDetail = () => {
     const { movieId } = useParams()
     let location = useLocation()
     const queryParams = new URLSearchParams(location.search)
-    // console.log(queryParams.get('episode') || 0)
-    const episodeIndex = queryParams.get('episode') - 1 || 0
+    const episodeIndex = queryParams.get('episode')
+        ? queryParams.get('episode') - 1
+        : 0
+    const category = queryParams.get('domain') || 1
+
     useEffect(() => {
         const slv = async () => {
-            const data = await getFilmDetail(movieId, episodeIndex)
-            console.log(data)
+            const data = await getFilmDetail(movieId, episodeIndex, category)
             setDataFilmDetail(data)
         }
         slv()

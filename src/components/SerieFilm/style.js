@@ -11,8 +11,11 @@ export const Style = styled.div`
             display: flex;
             gap: 1rem;
             margin-bottom: 0.5rem;
+            text-decoration: none;
+            color: var(--text-color);
             .bx-img {
                 width: 70px;
+                min-width: 70px;
                 height: 70px;
             }
             p {

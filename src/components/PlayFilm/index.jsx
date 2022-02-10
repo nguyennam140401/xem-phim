@@ -13,6 +13,7 @@ const PlayFilm = ({ dataFilm }) => {
                 height="auto"
                 controls
                 url={sources[0].url}
+                playing={true}
             />
             <InforFilm data={data} />
         </div>
