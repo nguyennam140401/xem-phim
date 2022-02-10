@@ -15,6 +15,7 @@ const AllFilm = () => {
             setListFilm(dataFilm.data)
         }
         slv()
+        setIdCategory(0)
     }, [])
     return (
         <div style={{ padding: '2rem' }}>

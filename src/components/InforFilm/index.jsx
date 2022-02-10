@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import { Style } from './style'
 const InforFilm = ({ data }) => {
     const {
-        aliasName,
-        episodeCount,
+        // aliasName,
+        // episodeCount,
         introduction,
         name,
         tagNameList,
@@ -13,7 +13,7 @@ const InforFilm = ({ data }) => {
         score,
         episodeVo,
     } = data
-    const tags = [1, 2, 3]
+    // const tags = [1, 2, 3]
     return (
         <Style>
             <h3>{name}</h3>
