@@ -1,20 +1,22 @@
-import { Grid } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Box, Grid } from '@mui/material'
+import React from 'react'
 import BoxFilm from '../components/BoxFilm'
 // import { getTopSearch } from '../api/apiPhim'
 const ListFilm = ({ arrFilm }) => {
-    console.log(arrFilm)
+    // console.log(arrFilm)
     return (
-        <Grid container spacing={2}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             {arrFilm &&
                 arrFilm.map((film, idx) => {
                     return (
-                        <Grid item key={idx} xs={3}>
-                            <BoxFilm data={film} />
-                        </Grid>
+                        <BoxFilm
+                            key={idx}
+                            data={film}
+                            style={{ width: '100%' }}
+                        />
                     )
                 })}
-        </Grid>
+        </Box>
     )
 }
 

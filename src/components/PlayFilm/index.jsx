@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
+import { subtitleProxy } from '../../utils/sub'
 import InforFilm from '../InforFilm'
 
 const PlayFilm = ({ dataFilm }) => {
@@ -14,7 +15,23 @@ const PlayFilm = ({ dataFilm }) => {
                 controls
                 url={sources[0].url}
                 playing={true}
+                config={{
+                    file: {
+                        attributes: {
+                            crossOrigin: 'true',
+                        },
+                        tracks: [
+                            {
+                                kind: 'subtitles',
+                                src: subtitleProxy(subtitles[0].url),
+                                srcLang: 'en',
+                                default: true,
+                            },
+                        ],
+                    },
+                }}
             />
+
             <InforFilm data={data} />
         </div>
     )

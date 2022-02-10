@@ -19,7 +19,7 @@ const Filter = ({ arrOption }) => {
     }
     return (
         <Style>
-            <Grid container>
+            <Grid container sx={{ marginBottom: '1.5rem' }}>
                 {arrOption &&
                     arrOption.map((item, idx) => {
                         return (

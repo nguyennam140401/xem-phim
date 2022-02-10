@@ -11,14 +11,10 @@ const BoxFilm = ({ data }) => {
         domainType,
         category,
     } = data
-    console.log(domainType, category)
+    // console.log(domainType, category)
     return (
         <Style>
-            <Link
-                to={`/movie/${id}?domain=${
-                    domainType !== 'undefined' ? domainType : category
-                }`}
-            >
+            <Link to={`/movie/${id}?domain=${domainType || category || '0'}`}>
                 <div className="bx_img">
                     <img src={imageUrl || coverVerticalUrl} alt="" />
                 </div>

@@ -22,7 +22,9 @@ const FilmDetail = () => {
             setDataFilmDetail(data)
         }
         slv()
+        console.log(dataFilmDetail)
     }, [episodeIndex, movieId])
+
     return (
         <Grid container sx={{ p: 4 }} spacing={4}>
             <Grid item xs={9}>

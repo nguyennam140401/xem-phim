@@ -26,7 +26,7 @@ export const searchByKeyword = async (keyword) => {
         'https://ga-mobile-api.loklok.tv/cms/app/search/v1/searchWithKeyWord',
         {
             searchKeyWord: keyword,
-            size: 50,
+            size: 20,
         }
     )
     return res.data
@@ -38,12 +38,17 @@ export const getDetailFilm = async (id, type) => {
     return res.data
 }
 
-export const getPlayFilm = async (contentId, episodeId, definition) => {
+export const getPlayFilm = async (
+    contentId,
+    episodeId,
+    definition,
+    category = 1
+) => {
     const res = await newAxios.get(
         `https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo`,
         {
             params: {
-                category: 1,
+                category: category,
                 contentId: contentId,
                 episodeId: episodeId,
                 definition: definition,

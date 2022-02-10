@@ -3,15 +3,17 @@ import { getDetailFilm, getPlayFilm } from '../api/apiPhim'
 export const getFilmDetail = async (id, episodeIndex, type) => {
     const res = await getDetailFilm(id, type)
     const data = res.data
+    console.log(data)
     const sources = (
         await Promise.all(
             data.episodeVo[episodeIndex].definitionList.map(async (quality) => {
                 const res = await getPlayFilm(
                     id,
                     data.episodeVo[episodeIndex].id,
-                    quality.code
+                    quality.code,
+                    data.category
                 )
-                console.log(res)
+                // console.log(res)
                 return res.data.mediaUrl
             })
         )
