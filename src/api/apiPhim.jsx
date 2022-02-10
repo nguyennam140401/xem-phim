@@ -31,3 +31,24 @@ export const searchByKeyword = async (keyword) => {
     )
     return res.data
 }
+export const getDetailFilm = async (id) => {
+    const res = await newAxios.get(
+        `https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=${id}&category=1`
+    )
+    return res.data
+}
+
+export const getPlayFilm = async (contentId, episodeId, definition) => {
+    const res = await newAxios.get(
+        `https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo`,
+        {
+            params: {
+                category: 1,
+                contentId: contentId,
+                episodeId: episodeId,
+                definition: definition,
+            },
+        }
+    )
+    return res.data
+}

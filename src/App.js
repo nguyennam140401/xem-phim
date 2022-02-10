@@ -4,6 +4,7 @@ import './App.css'
 import Navigation from './components/Navigation'
 import { Routes, Route } from 'react-router-dom'
 import Home from './container/Home'
+import FilmDetail from './container/FilmDetail'
 function App() {
     return (
         <>
@@ -11,6 +12,9 @@ function App() {
             <Routes>
                 <Route path="/">
                     <Route index element={<Home />} />
+                </Route>
+                <Route path="/movie">
+                    <Route path=":movieId" element={<FilmDetail />} />
                 </Route>
             </Routes>
         </>

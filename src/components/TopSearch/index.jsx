@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getTopSearch } from '../../api/apiPhim'
 import { Style } from './style'
+import BoxFilmSearch from '../BoxFilmSearch'
 const TopSearch = () => {
     const [listFilm, setListFilm] = useState(null)
     useEffect(() => {
@@ -16,7 +17,15 @@ const TopSearch = () => {
     return (
         <Style>
             <p className="title">Top Search</p>
-            {listFilm !== null ? <div>Oke</div> : <div>Đang tải.....</div>}
+            {listFilm !== null ? (
+                <div className="listFilm">
+                    {listFilm.map((film, idx) => {
+                        return <BoxFilmSearch key={idx} data={film} />
+                    })}
+                </div>
+            ) : (
+                <div>Đang tải.....</div>
+            )}
         </Style>
     )
 }
