@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import { getDetailFilm } from '../api/apiPhim'
+// import { getDetailFilm } from '../api/apiPhim'
 import PlayFilm from '../components/PlayFilm'
 import SerieFilm from '../components/SerieFilm'
 import { getFilmDetail } from '../utils/getFilmDetail'
@@ -22,8 +22,8 @@ const FilmDetail = () => {
             setDataFilmDetail(data)
         }
         slv()
-        console.log(dataFilmDetail)
-    }, [episodeIndex, movieId])
+        // console.log(dataFilmDetail)
+    }, [episodeIndex, movieId, category])
 
     return (
         <Grid container sx={{ p: 4 }} spacing={4}>
