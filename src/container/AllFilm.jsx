@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getSearchOption, searchFilm } from '../api/apiPhim'
 import Filter from '../components/Filter'
+import DataSearchContext from '../context/DataSearch'
 import ListFilm from './ListFilm'
 
 const AllFilm = () => {
@@ -18,25 +19,27 @@ const AllFilm = () => {
         setIdCategory(0)
     }, [])
     return (
-        <div style={{ padding: '2rem' }}>
-            <div
-                className="category"
-                style={{ display: 'flex', gap: ' 1.5rem' }}
-            >
-                {dataSearch &&
-                    dataSearch.map((item, idx) => {
-                        return (
-                            <div key={idx} className="">
-                                {item.name}
-                            </div>
-                        )
-                    })}
+        <DataSearchContext>
+            <div style={{ padding: '2rem' }}>
+                <div
+                    className="category"
+                    style={{ display: 'flex', gap: ' 1.5rem' }}
+                >
+                    {dataSearch &&
+                        dataSearch.map((item, idx) => {
+                            return (
+                                <div key={idx} className="">
+                                    {item.name}
+                                </div>
+                            )
+                        })}
+                </div>
+                {dataSearch && (
+                    <Filter arrOption={dataSearch[idCategory].screeningItems} />
+                )}
+                {listFilm && <ListFilm arrFilm={listFilm.searchResults} />}
             </div>
-            {dataSearch && (
-                <Filter arrOption={dataSearch[idCategory].screeningItems} />
-            )}
-            {listFilm && <ListFilm arrFilm={listFilm.searchResults} />}
-        </div>
+        </DataSearchContext>
     )
 }
 
