@@ -65,26 +65,10 @@ export const getSearchOption = async () => {
     return res.data
 }
 
-export const searchFilm = async (
-    size = 20,
-    params,
-    area,
-    category,
-    year,
-    subtitles,
-    order = 'up'
-) => {
+export const searchFilm = async (option) => {
     const res = await newAxios.post(
         'https://ga-mobile-api.loklok.tv/cms/app/search/v1/search',
-        {
-            size: size,
-            params: params,
-            area: area,
-            category: category,
-            year: year,
-            subtitles: subtitles,
-            order: order,
-        }
+        option
     )
     return res.data
 }

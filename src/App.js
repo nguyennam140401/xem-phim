@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './container/Home'
 import FilmDetail from './container/FilmDetail'
 import AllFilm from './container/AllFilm'
+import DataSearchContextProvider from './context/DataSearchContext'
 function App() {
     return (
         <>
@@ -14,11 +15,15 @@ function App() {
                 <Route path="/">
                     <Route index element={<Home />} />
                 </Route>
-                <Route path="/movie">
-                    <Route index element={<AllFilm />} />
-                    <Route path=":movieId" element={<FilmDetail />} />
-                </Route>
             </Routes>
+            <DataSearchContextProvider>
+                <Routes>
+                    <Route path="/movie">
+                        <Route index element={<AllFilm />} />
+                        <Route path=":movieId" element={<FilmDetail />} />
+                    </Route>
+                </Routes>
+            </DataSearchContextProvider>
         </>
     )
 }

@@ -1,45 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { getSearchOption, searchFilm } from '../api/apiPhim'
+import React, { useContext, useEffect, useState } from 'react'
 import Filter from '../components/Filter'
-import DataSearchContext from '../context/DataSearch'
+import { DataSearchContext } from '../context/DataSearchContext'
 import ListFilm from './ListFilm'
 
 const AllFilm = () => {
-    const [dataSearch, setDataSearch] = useState(null)
-    const [listFilm, setListFilm] = useState(null)
-    const [idCategory, setIdCategory] = useState(0)
-    useEffect(() => {
-        const slv = async () => {
-            const res = await getSearchOption()
-            setDataSearch(res.data)
-            const dataFilm = await searchFilm()
-            setListFilm(dataFilm.data)
-        }
-        slv()
-        setIdCategory(0)
-    }, [])
+    const { filterState, idCategory, listFilm, changeIdCategory } =
+        useContext(DataSearchContext)
     return (
-        <DataSearchContext>
-            <div style={{ padding: '2rem' }}>
-                <div
-                    className="category"
-                    style={{ display: 'flex', gap: ' 1.5rem' }}
-                >
-                    {dataSearch &&
-                        dataSearch.map((item, idx) => {
-                            return (
-                                <div key={idx} className="">
-                                    {item.name}
-                                </div>
-                            )
-                        })}
-                </div>
-                {dataSearch && (
-                    <Filter arrOption={dataSearch[idCategory].screeningItems} />
-                )}
-                {listFilm && <ListFilm arrFilm={listFilm.searchResults} />}
+        // <DataSearchContextProvider>
+        <div style={{ padding: '2rem' }}>
+            <div
+                className="category"
+                style={{ display: 'flex', gap: ' 1.5rem' }}
+            >
+                {filterState &&
+                    filterState.map((item, idx) => {
+                        return (
+                            <div
+                                key={idx}
+                                className=""
+                                onClick={() => {
+                                    changeIdCategory(idx)
+                                }}
+                            >
+                                {item.name}
+                            </div>
+                        )
+                    })}
             </div>
-        </DataSearchContext>
+            {filterState && (
+                <Filter arrOption={filterState[idCategory].screeningItems} />
+            )}
+            {listFilm && <ListFilm arrFilm={listFilm.searchResults} />}
+        </div>
+        // </DataSearchContextProvider>
     )
 }
 
