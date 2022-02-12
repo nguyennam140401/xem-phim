@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import React, { useContext } from 'react'
+import React from 'react'
 import BoxFilm from '../components/BoxFilm'
 // import { DataSearchContext } from '../context/DataSearchContext'
 // import { getTopSearch } from '../api/apiPhim'
