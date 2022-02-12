@@ -9,6 +9,7 @@ const FormSearch = () => {
     const [dataSearch, setDataSearch] = useState([])
     const changeInput = async (event) => {
         if (event.target.value === '') {
+            setTextSearch(event.target.value)
             setDataSearch([])
             return
         }
