@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Filter from '../components/Filter'
 import { DataSearchContext } from '../context/DataSearchContext'
 import ListFilm from './ListFilm'

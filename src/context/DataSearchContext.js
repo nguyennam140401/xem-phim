@@ -4,7 +4,7 @@ export const DataSearchContext = createContext()
 
 const DataSearchContextProvider = ({ children }) => {
     // const [category, setCategory] = useState(null)
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
     const [filterState, setFilterState] = useState(null)
     const [listFilm, setListFilm] = useState(null)
     const [idCategory, setIdCategory] = useState(0)
