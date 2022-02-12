@@ -23,7 +23,10 @@ const PlayFilm = ({ dataFilm }) => {
                         tracks: [
                             {
                                 kind: 'subtitles',
-                                src: subtitleProxy(subtitles[0].url),
+                                src:
+                                    subtitles.length > 0
+                                        ? subtitleProxy(subtitles[0].url)
+                                        : '',
                                 srcLang: 'en',
                                 default: true,
                             },
