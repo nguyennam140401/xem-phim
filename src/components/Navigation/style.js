@@ -7,8 +7,10 @@ export const Style = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 var(--mb-2);
-    p {
+    .logo {
         font-size: 2.5em;
+        text-decoration: none;
+        color: #000;
     }
     .nav {
         display: flex;

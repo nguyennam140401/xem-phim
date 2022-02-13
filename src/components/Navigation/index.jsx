@@ -14,7 +14,9 @@ const Navigation = () => {
     ]
     return (
         <Style>
-            <p className="logo">PhimNV</p>
+            <Link className="logo" to="/">
+                PhimNV
+            </Link>
             <div className="nav">
                 {nav.map((item, idx) => {
                     return (
