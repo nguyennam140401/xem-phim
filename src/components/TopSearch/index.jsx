@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getTopSearch } from '../../api/apiPhim'
 import { Style } from './style'
 import BoxFilmSearch from '../BoxFilmSearch'
+import BoxFilmSearchLoading from '../BoxLoading/BoxFilmSearchLoading'
 const TopSearch = () => {
     const [listFilm, setListFilm] = useState(null)
     useEffect(() => {
@@ -24,7 +25,11 @@ const TopSearch = () => {
                     })}
                 </div>
             ) : (
-                <div>Đang tải.....</div>
+                <div>
+                    <BoxFilmSearchLoading />
+                    <BoxFilmSearchLoading />
+                    <BoxFilmSearchLoading />
+                </div>
             )}
         </Style>
     )

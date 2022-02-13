@@ -1,12 +1,8 @@
 import { Box } from '@mui/material'
 import React from 'react'
 import BoxFilm from '../components/BoxFilm'
-// import { DataSearchContext } from '../context/DataSearchContext'
-// import { getTopSearch } from '../api/apiPhim'
+
 const ListFilm = ({ arrFilm }) => {
-    // console.log(arrFilm)
-    // const tmp = useContext(DataSearchContext)
-    // console.log(tmp)
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             {arrFilm &&
