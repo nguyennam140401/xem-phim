@@ -1,43 +1,40 @@
-import React from 'react'
-import ReactPlayer from 'react-player'
-import { subtitleProxy } from '../../utils/sub'
-import InforFilm from '../InforFilm'
+import React from "react";
+import ReactPlayer from "react-player";
+import { subtitleProxy } from "../../utils/sub";
+import InforFilm from "../InforFilm";
 
-const PlayFilm = ({ dataFilm }) => {
-    console.log(dataFilm)
-    const { data, sources, subtitles } = dataFilm
-    console.log(data)
-    return (
-        <div>
-            <ReactPlayer
-                width="100%"
-                height="auto"
-                controls
-                url={sources[0].url}
-                playing={true}
-                config={{
-                    file: {
-                        attributes: {
-                            crossOrigin: 'true',
-                        },
-                        tracks: [
-                            {
-                                kind: 'subtitles',
-                                src:
-                                    subtitles.length > 0
-                                        ? subtitleProxy(subtitles[0].url)
-                                        : '',
-                                srcLang: 'en',
-                                default: true,
-                            },
-                        ],
-                    },
-                }}
-            />
+const PlayFilm = ({ dataFilm, episodeIndex }) => {
+	const { data, sources, subtitles } = dataFilm;
 
-            <InforFilm data={data} />
-        </div>
-    )
-}
+	return (
+		<div>
+			<ReactPlayer
+				width="100%"
+				height="auto"
+				controls
+				url={sources[0].url}
+				playing={true}
+				config={{
+					file: {
+						attributes: {
+							crossOrigin: "true",
+						},
+						tracks: [
+							{
+								kind: "subtitles",
+								src:
+									subtitles.length > 0 ? subtitleProxy(subtitles[0].url) : "",
+								srcLang: "en",
+								default: true,
+							},
+						],
+					},
+				}}
+			/>
 
-export default PlayFilm
+			<InforFilm data={data} episodeIndex={episodeIndex} />
+		</div>
+	);
+};
+
+export default PlayFilm;
