@@ -5,7 +5,6 @@ import InforFilm from "../InforFilm";
 
 const PlayFilm = ({ dataFilm, episodeIndex }) => {
 	const { data, sources, subtitles } = dataFilm;
-	console.log(subtitles);
 	return (
 		<div>
 			<ReactPlayer

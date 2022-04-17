@@ -13,9 +13,6 @@ const AllFilm = () => {
 			<div className="category" style={{ display: "flex", gap: " 1.5rem" }}>
 				{filterState &&
 					filterState.map((item, idx) => {
-						console.log(item);
-
-						console.log(idCategory);
 						return (
 							<div
 								key={idx}

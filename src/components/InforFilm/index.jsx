@@ -47,7 +47,6 @@ const InforFilm = ({ data, episodeIndex }) => {
 					count={episodeVo.length}
 					page={currentPage}
 					onChange={(event, value) => {
-						console.log(value);
 						setCurrentPage(value);
 						navigate(`?episode=${value}`);
 					}}
