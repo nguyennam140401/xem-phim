@@ -5,7 +5,7 @@ import InforFilm from "../InforFilm";
 
 const PlayFilm = ({ dataFilm, episodeIndex }) => {
 	const { data, sources, subtitles } = dataFilm;
-
+	console.log(subtitles);
 	return (
 		<div>
 			<ReactPlayer
@@ -19,15 +19,21 @@ const PlayFilm = ({ dataFilm, episodeIndex }) => {
 						attributes: {
 							crossOrigin: "true",
 						},
-						tracks: [
-							{
+						tracks: subtitles.map((item, idx) => {
+							return {
 								kind: "subtitles",
-								src:
-									subtitles.length > 0 ? subtitleProxy(subtitles[0].url) : "",
-								srcLang: "en",
-								default: true,
-							},
-						],
+								src: subtitleProxy(item.url),
+								srcLang: item.language,
+								default: idx === 0,
+							};
+						}),
+						// {
+						// 	kind: "subtitles",
+						// 	src:
+						// 		subtitles.length > 0 ? subtitleProxy(subtitles[0].url) : "",
+						// 	srcLang: "en",
+						// 	default: true,
+						// },
 					},
 				}}
 			/>

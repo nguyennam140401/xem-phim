@@ -1,7 +1,7 @@
 import { CalendarViewMonth, Star } from "@mui/icons-material";
 import { Pagination } from "@mui/material";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Style } from "./style";
 const InforFilm = ({ data, episodeIndex }) => {
 	const { introduction, name, tagNameList, year, score, episodeVo } = data;
